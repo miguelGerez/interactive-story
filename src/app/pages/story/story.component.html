@@ -1,0 +1,22 @@
+<div class="story">
+  <h2>{{ currentScene?.text }}</h2>
+
+  @if (currentScene?.options!.length > 0) {
+  <div class="options">
+    @for ( option of currentScene?.options ; track option) {
+    <button (click)="chooseOption(option.nextScene)">
+      {{ option.text }}
+    </button>
+    }
+  </div>
+  } @if (!currentScene?.options?.length) {
+  <div>
+    <p>End of the story.</p>
+    <button (click)="chooseOption(1)">Restart</button>
+  </div>
+  }
+</div>
+
+<div class="reset-button" (click)="resetGame()">
+  🔄
+</div>

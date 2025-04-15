@@ -1,0 +1,17 @@
+<div class="settings-button" (click)="toggleSettingsPopup()">
+    ⚙️
+  </div>
+  @if (showSettingsPopup) {
+    <div class="settings-popup">
+        <div class="popup-content">
+          <h2>Settings</h2>
+          <label for="language">Select Language:</label>
+          <select id="language" [value]="languageService.language()" (change)="saveLanguage($event)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+
+          <button (click)="toggleSettingsPopup()">Close</button>
+        </div>
+      </div>
+  }
